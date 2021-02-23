@@ -1,0 +1,111 @@
+html, body {
+    margin:0;
+    padding:0;
+  }
+
+body{
+    background-color: #7eafbb;
+}
+
+.header {
+    padding: 15x;
+    align-items: flex-start;
+    background: #072e35;
+    border-bottom: 0.2rem solid #526b99;
+  }
+
+.icon-airplane{
+    margin-top: 0.7rem;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    width: 40px;
+    height: 40px;
+    display: block; 
+}
+
+.page-titel {
+    color:#c4cfbe;
+}
+
+.container {
+display: flex;   
+flex-direction: row;
+}
+
+.font-style{
+    font-family: sans-serif;
+}
+
+.search {
+    width: 20rem;
+    position: relative;
+    display: flex;
+  }
+  
+  .search-term{
+    width: 100%;
+    border: .2rem solid #b4b642;
+    border-right: none;
+    padding: .2rem;
+    height: 1.3rem;
+    border-radius: .5rem 0 0 .5rem;
+    outline: none;
+    color: #9DBFAF;
+  }
+  
+  .search-term:focus{
+    color: #526b99;
+  }
+  
+  .search-button {
+    width: 3rem;
+    height: 2.1rem;
+    border: .2rem solid #b4b642;
+    background: #e3e63a;
+    text-align: center;
+    color: #000408;
+    border-radius:0 0.5rem 0.5rem 0;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  /*Resize the wrap to see the search bar change*/
+  .wrap{
+    width: 20%;
+    position: absolute;
+    top: 15%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+  }
+
+  .container2{
+      display: flex;
+      flex-direction: column;
+      align-content: space-between;
+      position: absolute;
+      top: 13.5%;
+      left: 55%;
+  }
+  .container3{
+      justify-items: center;
+      align-items: center;
+  }
+
+.border-line{
+width: 100%;
+position: fixed;
+border-bottom: .2rem solid #072e35;
+padding: 6rem;
+color: #072e35;
+}
+
+#footer {
+position: fixed;
+padding: 0.5rem 0.5rem  0.5rem  0.5rem ;
+width: 100%;
+bottom: 0; 
+height: 0.5rem;
+background: #04181b;
+border-top: 0.1rem solid #526b99;
+}
+
