@@ -1,8 +1,10 @@
+const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?`;
 const fetchWeatherKey = "ec4664d38e3b79b848bd5c211b6c69bf";
+const fourSquareUrl = `https://api.foursquare.com/v2/venues/explore?`;
 const attractionClientID = "4BW4Z1VVYDITXLBFWAOJCD5H1BI310NT3UFAAYS5GMZWQTTQ";
 const attractionClientSecret = "GR22135U0U2JE3SHAKSNGXLZJKPBEXK4MNH2KWGVO3F4BFEI";
-const fourSquareDate = "20210224";
-//hämtar weather-container, attraction-container, error-container, form
+const fourSquareDate = "20210228";
+//hämtar form, weather-container, attraction-container, error-container
 const form = document.querySelector("form");
 const weatherContainer = document.querySelector('#weather-container');
 const attractionContainer = document.querySelector("#attraction-container");
@@ -33,11 +35,11 @@ const executeSearch = async () => {
     //value = gives u the text that is written in the elemnt right now
     const search = form.elements[0].value;
     console.log(search)
+
     //skickar in värdet av det jag skriver i search-baren
     const onlyWeather = document.querySelector("#weather-checkbox").checked;
     const onlyAttractions = document.querySelector("#attractions-checkbox").checked;
     const filter = document.querySelector("#filter-checkbox").checked;
-
     if (onlyWeather === true & onlyAttractions === true || onlyWeather === false & onlyAttractions === false) {
         await fetchWeather(search)
         await fetchAttraction(search, filter)
@@ -51,7 +53,7 @@ const executeSearch = async () => {
 }
 
 const fetchWeather = async (search) => {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${fetchWeatherKey}`)
+    const response = await fetch(`${weatherUrl}q=${search}&units=metric&appid=${fetchWeatherKey}`)
     const data = await response.json();
     console.log(data);
     try {
@@ -68,7 +70,7 @@ const fetchWeather = async (search) => {
 }
 
 const fetchAttraction = async (search, filter) => {
-    const response = await fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${attractionClientID}&client_secret=${attractionClientSecret}&near=${search}&v=${fourSquareDate}&limit=5`);
+    const response = await fetch(`${fourSquareUrl}client_id=${attractionClientID}&client_secret=${attractionClientSecret}&near=${search}&v=${fourSquareDate}&limit=5`);
     const data = await response.json();
     console.log(data);
 
@@ -83,16 +85,20 @@ const fetchAttraction = async (search, filter) => {
             return new Attraction(name, address, iconUrl)
         })
         console.log(attractionList);
+
         if (filter === true) {
             attractionList = attractionList.sort((a, b) => {
                 let nameA = a._name.toLowerCase(), nameB = b._name.toLowerCase();
                 if (nameA < nameB) //leaves the list unchanged
                     return -1;
-                if (nameA > nameB) // changed list where b is sorted before a
+                if (nameA > nameB) //changed list where b is sorted before a
                     return 1;
-                return 0; // list unchanged with respect to each other (a equal to b), but sorted with respect to all different elements.  
+                return 0; //list unchanged with respect to each other (a equal to b), but sorted with respect to all different elements.  
             });
         }
+        //listan kallar på forEach metoden på attractionlist arryn
+        //lopar igenom listan och exekverar callback funktionen createAttractionElement för varje element
+        //varje element passas in som ett argument till CreateAttractionElement(calback)
         attractionList.forEach(attraction => createAttractionElement(attraction._name, attraction._adress, attraction._iconUrl));
     }
     catch (error) {
@@ -140,5 +146,3 @@ const createErrorElement = async () => {
     tmpErrorContainer.appendChild(errorMessage);
     errorContainer.appendChild(tmpErrorContainer);
 }
-
-
