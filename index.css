@@ -5,27 +5,14 @@ body {
 }
 
 body {
-  background-color: #7eafbb;
-}
-
-.header {
-  padding: 15x;
-  align-items: flex-start;
-  background: #072e35;
-  border-bottom: 0.2rem solid #526b99;
-}
-
-.icon-airplane {
-  margin-top: 0.7rem;
-  margin-left: 1rem;
-  margin-right: 0.5rem;
-  width: 40px;
-  height: 40px;
-  display: block;
+  background-image: url("chicago-city.jpg");
+  background-size: cover;
 }
 
 .page-titel {
   color: #c4cfbe;
+  margin-left: 1rem;
+  color: #c97b7b;
 }
 
 .container {
@@ -34,20 +21,19 @@ body {
 }
 
 .font-style {
-  font-family: sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-.search {
+#search {
   width: 20rem;
   display: flex;
 }
 
 .search-term {
   width: 100%;
-  border: .2rem solid #b4b642;
+  border: .2rem solid #c97b7b;
   border-right: none;
-  padding: .2rem;
-  height: 1.3rem;
+  background: padding-box;
   border-radius: .5rem 0 0 .5rem;
   outline: none;
   color: #9DBFAF;
@@ -60,8 +46,8 @@ body {
 .search-button {
   width: 3rem;
   height: 2.1rem;
-  border: .2rem solid #b4b642;
-  background: #e3e63a;
+  border: .2rem solid #c97b7b;
+  background: #a55a50;
   text-align: center;
   color: #000408;
   border-radius: 0 0.5rem 0.5rem 0;
@@ -71,60 +57,72 @@ body {
 
 .wrap {
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   display: flex;
 }
 
 .container2 {
+  box-shadow: 0 20px 20px 0 #00000033, 0 10px 20px 0 #00000030;
+  margin: 10px;
+  margin-bottom: 50px;
   display: flex;
-  flex-wrap: wrap;
-  padding-bottom: 6rem;
-  margin-top: 5rem;
-  border-bottom: 0.1rem solid;
-  margin-bottom: 4rem;
+  background-color: #2b4257;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
 }
 
 .filter-container,
 .wrap {
   flex: 0 50%;
-
+  color: #c97b7b;
+  font-weight: bold;
+  font-style: oblique;
 }
 
 .filter-container label {
   display: block;
-  line-height: 20px;
+  margin-inline: 30px;
+  margin-block: 9px;
 }
 
-.inner-container>div {
-  width: 25rem;
-  height: 20rem;
-  background: #3f7083;
-  border: .2rem solid #c4cfbe;
-  margin-bottom: 2rem;
-}
-
-.container-top {
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 5rem;
-  width: 25rem;
-  height: 20rem;
-  background: #3f7083;
-  border: .2rem solid #c4cfbe;
-}
-
-.inner-container {
+#weather-container {
   display: flex;
   justify-content: space-evenly;
+  align-items: right;
+  text-align: center;
 }
 
+#attraction-container {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: left;
 
-#footer {
-  position: fixed;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  width: 100%;
-  bottom: 0;
-  height: 0.5rem;
-  background: #04181b;
-  border-top: 0.1rem solid #526b99;
+}
+
+#attraction-container>div {
+  box-shadow: 0 20px 20px 0 #00000033, 0 10px 20px 0 #00000030;
+  width: 15rem;
+  height: 20rem;
+  background: #884c4c;
+  border: .2rem solid #c4cfbe;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+#weather-container>div {
+  box-shadow: 0 20px 20px 0 #00000033, 0 10px 20px 0 #00000030;
+  width: 25rem;
+  height: 15rem;
+  background: #884c4c;
+  border: .2rem solid #c4cfbe;
+  margin-bottom: 4rem;
+  opacity: 0.8;
+}
+
+#error-container {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  font-size: xx-large;
 }
